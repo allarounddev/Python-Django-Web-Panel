@@ -165,7 +165,7 @@ MIDDLEWARE_CLASSES = (
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-SECRET_KEY = os.environ.get('SECRET_KEY', default='4e985de44b1c2d5a520c45b7e3284732')
+SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-_k+%8jp474-3g8v&-7lk4wvam%3edu+)(fujj_fy$dmcq+uuqk')
 DEBUG = 'RENDER' not in os.environ
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
