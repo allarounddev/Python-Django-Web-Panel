@@ -1,0 +1,904 @@
+2023-07-22 11:13:05,949 waitress     INFO    : Serving on http://0.0.0.0:80
+2023-07-22 11:15:10,532 django.request WARNING : Not Found: /favicon.ico
+2023-07-22 11:15:26,959 waitress     INFO    : Serving on http://0.0.0.0:8000
+2023-07-22 11:15:50,676 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 11:15:52,175 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 11:15:52,685 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 11:17:18,055 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 11:17:19,563 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 11:17:20,049 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 11:39:11,243 apscheduler.scheduler INFO    : Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2023-07-22 11:39:11,384 apscheduler.scheduler INFO    : Added job "heartbeat" to job store "default"
+2023-07-22 11:39:11,384 apscheduler.scheduler INFO    : Scheduler started
+2023-07-22 11:40:00,009 apscheduler.executors.default INFO    : Running job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:40:00 UTC)" (scheduled at 2023-07-22 02:40:00+00:00)
+2023-07-22 11:40:04,135 apscheduler.executors.default ERROR   : Job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:41:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 698, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 699, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 987, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 975, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 137, in send
+    return self.send_with_options(args=args, kwargs=kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 162, in send_with_options
+    return self.broker.enqueue(message, delay=delay)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 186, in enqueue
+    self.do_enqueue(queue_name, message.options["redis_message_id"], message.encode())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 278, in do_dispatch
+    self._max_unpack_size(),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 255, in _max_unpack_size
+    cls._max_unpack_size_val = DEFAULT_LUA_MAX_STACK or self.scripts["maxstack"]()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5807, in __call__
+    return client.evalsha(self.sha, len(keys), *args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5194, in evalsha
+    return self._evalsha("EVALSHA", sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5178, in _evalsha
+    return self.execute_command(command, sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\client.py", line 1255, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 1442, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 704, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2023-07-22 11:41:00,012 apscheduler.executors.default INFO    : Running job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:42:00 UTC)" (scheduled at 2023-07-22 02:41:00+00:00)
+2023-07-22 11:41:04,032 apscheduler.executors.default ERROR   : Job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:42:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 698, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 699, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 987, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 975, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 137, in send
+    return self.send_with_options(args=args, kwargs=kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 162, in send_with_options
+    return self.broker.enqueue(message, delay=delay)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 186, in enqueue
+    self.do_enqueue(queue_name, message.options["redis_message_id"], message.encode())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 278, in do_dispatch
+    self._max_unpack_size(),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 255, in _max_unpack_size
+    cls._max_unpack_size_val = DEFAULT_LUA_MAX_STACK or self.scripts["maxstack"]()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5807, in __call__
+    return client.evalsha(self.sha, len(keys), *args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5194, in evalsha
+    return self._evalsha("EVALSHA", sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5178, in _evalsha
+    return self.execute_command(command, sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\client.py", line 1255, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 1442, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 704, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2023-07-22 11:42:00,012 apscheduler.executors.default INFO    : Running job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:43:00 UTC)" (scheduled at 2023-07-22 02:42:00+00:00)
+2023-07-22 11:42:04,021 apscheduler.executors.default ERROR   : Job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:43:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 698, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 699, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 987, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 975, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 137, in send
+    return self.send_with_options(args=args, kwargs=kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 162, in send_with_options
+    return self.broker.enqueue(message, delay=delay)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 186, in enqueue
+    self.do_enqueue(queue_name, message.options["redis_message_id"], message.encode())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 278, in do_dispatch
+    self._max_unpack_size(),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 255, in _max_unpack_size
+    cls._max_unpack_size_val = DEFAULT_LUA_MAX_STACK or self.scripts["maxstack"]()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5807, in __call__
+    return client.evalsha(self.sha, len(keys), *args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5194, in evalsha
+    return self._evalsha("EVALSHA", sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5178, in _evalsha
+    return self.execute_command(command, sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\client.py", line 1255, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 1442, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 704, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2023-07-22 11:43:00,013 apscheduler.executors.default INFO    : Running job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:44:00 UTC)" (scheduled at 2023-07-22 02:43:00+00:00)
+2023-07-22 11:43:04,024 apscheduler.executors.default ERROR   : Job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:44:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 698, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 699, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 987, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 975, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 137, in send
+    return self.send_with_options(args=args, kwargs=kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 162, in send_with_options
+    return self.broker.enqueue(message, delay=delay)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 186, in enqueue
+    self.do_enqueue(queue_name, message.options["redis_message_id"], message.encode())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 278, in do_dispatch
+    self._max_unpack_size(),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 255, in _max_unpack_size
+    cls._max_unpack_size_val = DEFAULT_LUA_MAX_STACK or self.scripts["maxstack"]()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5807, in __call__
+    return client.evalsha(self.sha, len(keys), *args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5194, in evalsha
+    return self._evalsha("EVALSHA", sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5178, in _evalsha
+    return self.execute_command(command, sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\client.py", line 1255, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 1442, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 704, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2023-07-22 11:44:00,010 apscheduler.executors.default INFO    : Running job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:45:00 UTC)" (scheduled at 2023-07-22 02:44:00+00:00)
+2023-07-22 11:44:04,025 apscheduler.executors.default ERROR   : Job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:45:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 698, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 699, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 987, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 975, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 137, in send
+    return self.send_with_options(args=args, kwargs=kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 162, in send_with_options
+    return self.broker.enqueue(message, delay=delay)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 186, in enqueue
+    self.do_enqueue(queue_name, message.options["redis_message_id"], message.encode())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 278, in do_dispatch
+    self._max_unpack_size(),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 255, in _max_unpack_size
+    cls._max_unpack_size_val = DEFAULT_LUA_MAX_STACK or self.scripts["maxstack"]()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5807, in __call__
+    return client.evalsha(self.sha, len(keys), *args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5194, in evalsha
+    return self._evalsha("EVALSHA", sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5178, in _evalsha
+    return self.execute_command(command, sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\client.py", line 1255, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 1442, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 704, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2023-07-22 11:45:00,014 apscheduler.executors.default INFO    : Running job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:46:00 UTC)" (scheduled at 2023-07-22 02:45:00+00:00)
+2023-07-22 11:45:04,022 apscheduler.executors.default ERROR   : Job "heartbeat (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*'], next run at: 2023-07-22 02:46:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 698, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 699, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 987, in _connect
+    raise err
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 975, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\apscheduler\executors\base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 137, in send
+    return self.send_with_options(args=args, kwargs=kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\actor.py", line 162, in send_with_options
+    return self.broker.enqueue(message, delay=delay)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 186, in enqueue
+    self.do_enqueue(queue_name, message.options["redis_message_id"], message.encode())
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 278, in do_dispatch
+    self._max_unpack_size(),
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\dramatiq\brokers\redis.py", line 255, in _max_unpack_size
+    cls._max_unpack_size_val = DEFAULT_LUA_MAX_STACK or self.scripts["maxstack"]()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5807, in __call__
+    return client.evalsha(self.sha, len(keys), *args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5194, in evalsha
+    return self._evalsha("EVALSHA", sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\commands\core.py", line 5178, in _evalsha
+    return self.execute_command(command, sha, numkeys, *keys_and_args)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\client.py", line 1255, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 1442, in get_connection
+    connection.connect()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\redis\connection.py", line 704, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+2023-07-22 11:46:00,015 apscheduler.scheduler INFO    : Scheduler has been shut down
+2023-07-22 20:30:20,760 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 20:32:22,539 apscheduler.scheduler INFO    : Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2023-07-22 20:32:22,573 apscheduler.scheduler INFO    : Added job "heartbeat" to job store "default"
+2023-07-22 20:32:22,573 apscheduler.scheduler INFO    : Scheduler started
+2023-07-22 20:33:00,019 apscheduler.scheduler INFO    : Scheduler has been shut down
+2023-07-22 20:38:10,060 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 20:39:17,667 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 20:39:19,118 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 20:39:19,600 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 20:39:19,811 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 20:39:20,222 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 20:39:20,399 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 20:39:21,520 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 20:39:21,805 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 20:39:21,826 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 20:39:22,016 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 20:39:22,297 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 20:39:22,375 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:14:11,518 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\models.py changed, reloading.
+2023-07-22 22:14:15,189 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:14:16,443 django.request ERROR   : Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: no such column: myapp_server.status_ip
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 19, in dashboard
+    return render(request, 'dashboard.html', {'server_list':serverList})
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: no such column: myapp_server.status_ip
+2023-07-22 22:14:19,843 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\models.py changed, reloading.
+2023-07-22 22:14:22,726 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:14:30,378 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\models.py changed, reloading.
+2023-07-22 22:14:32,921 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:14:36,156 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\models.py changed, reloading.
+2023-07-22 22:14:39,027 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:14:41,199 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\models.py changed, reloading.
+2023-07-22 22:14:43,602 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:16:29,673 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:17:49,856 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 69, in server_status
+    update = Server.objects.get(id=result['id'])
+KeyError: 'id'
+2023-07-22 22:18:35,647 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 69, in server_status
+    update = Server.objects.get(id=result['id'])
+KeyError: 'id'
+2023-07-22 22:19:45,813 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 69, in server_status
+    update = Server.objects.get(id=result['id'])
+KeyError: 'id'
+2023-07-22 22:19:51,013 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 69, in server_status
+    update = Server.objects.get(id=result['id'])
+KeyError: 'id'
+2023-07-22 22:20:27,674 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:20:29,168 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:20:29,669 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:48:34,423 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:48:37,229 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:48:46,074 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:48:48,568 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:48:50,767 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:48:53,390 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:48:58,050 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:49:00,510 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:49:02,108 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:49:04,459 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:49:11,065 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:49:13,600 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:49:45,786 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:49:48,557 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:49:49,920 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:49:52,524 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:49:54,707 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:49:57,757 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:50:01,026 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:50:03,544 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:50:55,529 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:50:58,407 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:51:01,727 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:51:04,143 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:51:38,903 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:51:41,234 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:51:46,583 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:51:48,950 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:51:56,418 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:51:59,057 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:52:09,789 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:52:12,833 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:52:15,109 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:52:17,922 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:52:25,614 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:52:28,089 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:52:33,702 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:52:36,251 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:52:38,494 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:52:41,233 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:52:53,187 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:52:56,028 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:52:57,333 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:52:59,925 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:53:03,284 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:53:05,857 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:53:07,296 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:53:09,827 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:53:12,947 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:53:15,652 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:53:17,963 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:53:20,274 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:53:24,576 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:53:26,911 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:53:35,530 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:53:38,001 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:53:41,146 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:53:43,862 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:54:28,420 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:54:32,826 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:54:34,222 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:54:40,276 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:54:46,206 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:54:52,216 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:54:58,288 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:55:03,380 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:55:09,210 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:55:15,244 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:55:21,233 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.username, password=server.password)
+AttributeError: 'Server' object has no attribute 'username'
+2023-07-22 22:55:24,860 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:55:27,606 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:55:28,250 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 77, in server_status
+    client.connect(server.ip, username=server.root_user, password=server.password)
+AttributeError: 'Server' object has no attribute 'password'
+2023-07-22 22:55:31,137 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:55:33,875 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:55:39,723 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:55:41,002 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:55:41,247 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:55:41,627 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:55:41,740 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:55:42,458 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:55:42,952 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:55:43,113 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:55:43,615 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:55:45,112 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:55:46,632 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:55:47,118 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:55:48,624 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:55:49,955 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:55:50,436 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:55:51,926 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:55:53,352 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:55:53,841 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:55:55,454 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:55:56,853 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:55:57,350 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:55:58,826 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:00,255 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:56:03,063 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 22:56:04,681 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:06,011 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:06,506 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:08,281 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:09,572 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:10,069 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:11,817 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:13,124 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:13,636 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:15,369 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:16,718 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:17,202 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:18,819 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:20,193 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:20,695 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:22,295 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:23,618 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:24,107 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:25,673 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:26,921 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:27,429 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:29,107 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:30,457 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:30,949 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:33,094 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:34,465 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:34,958 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:36,718 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:38,145 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:38,624 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:40,131 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:41,395 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:41,872 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:43,338 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:44,747 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:45,226 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:46,890 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:48,152 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:48,631 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:50,265 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:51,492 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:51,975 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:53,528 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:54,814 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:55,288 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:56:57,152 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:56:58,500 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:56:58,996 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:00,853 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:02,109 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:02,613 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:04,336 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:05,631 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:06,128 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:07,910 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:09,363 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:09,856 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:11,896 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:13,150 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:13,645 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:15,406 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:16,676 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:17,164 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:18,854 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:20,177 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:20,655 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:22,539 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:23,975 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:24,457 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:26,248 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:27,555 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:28,056 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:29,821 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:31,059 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:31,544 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:33,242 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:34,539 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:35,034 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:36,909 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:38,254 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:38,756 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:40,573 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:41,925 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:42,444 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:44,507 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:45,776 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:46,260 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:47,951 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:49,259 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:49,740 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:51,544 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:53,022 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:53,514 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:56,029 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:57:57,398 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:57:57,883 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:57:59,953 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:01,234 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:01,724 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:03,546 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:04,792 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:05,272 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:06,912 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:08,197 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:08,689 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:10,359 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:11,643 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:12,127 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:13,855 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:15,218 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:15,706 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:17,684 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:19,182 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:19,684 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:21,339 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:22,629 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:23,109 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:25,269 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:26,734 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:27,215 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:29,041 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:30,305 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:30,803 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:32,382 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:33,679 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:34,184 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:35,887 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:37,159 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:37,646 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:39,287 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:40,547 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:41,025 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:43,196 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:44,603 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:45,110 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:47,095 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:48,686 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:49,180 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:51,100 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:52,374 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:52,859 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:54,496 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:55,854 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:56,348 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:58:58,234 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:58:59,496 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:58:59,965 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:59:01,895 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:59:03,186 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:59:03,678 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:59:05,395 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:59:06,719 paramiko.transport INFO    : Authentication (publickey) failed.
+2023-07-22 22:59:07,206 paramiko.transport INFO    : Authentication (password) successful!
+2023-07-22 22:59:09,101 paramiko.transport INFO    : Connected (version 2.0, client OpenSSH_7.4)
+2023-07-22 22:59:09,958 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 22:59:12,643 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:04:39,316 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:05:44,112 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:08:29,736 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:08:34,669 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 78, in server_status
+    if r.ret_code == 0:
+AttributeError: 'float' object has no attribute 'ret_code'
+2023-07-22 23:08:37,117 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 78, in server_status
+    if r.ret_code == 0:
+AttributeError: 'float' object has no attribute 'ret_code'
+2023-07-22 23:09:05,139 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:09:08,049 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:09:09,441 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:09:12,215 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:09:20,826 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:09:23,297 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:09:27,795 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:09:30,480 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:09:32,613 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:09:35,282 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:09:37,245 django.request ERROR   : Internal Server Error: /server_status/
+Traceback (most recent call last):
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 80, in server_status
+    ping.ping("not.exist.com")
+AttributeError: 'function' object has no attribute 'ping'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "D:\Works\freelancer\django_panel\myapp\views.py", line 81, in server_status
+    except ping.errors.HostUnknown:  # Specific error is catched.
+AttributeError: 'function' object has no attribute 'errors'
+2023-07-22 23:09:44,207 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:09:46,993 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:09:59,051 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:10:02,048 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:10:06,372 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:10:09,121 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:10:16,770 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:10:19,190 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:10:21,657 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:10:24,391 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:10:26,594 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:10:28,901 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:11:32,277 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:11:35,219 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:11:37,680 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:11:40,286 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:11:46,569 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:12:07,026 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:12:09,708 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:12:42,123 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:12:45,504 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:13:18,680 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:13:21,133 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:13:31,994 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:13:34,448 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:13:43,164 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:13:45,664 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:13:49,111 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:13:51,688 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:13:53,815 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:13:56,819 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:14:04,542 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:14:06,967 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:15:04,633 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:15:07,275 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:15:09,479 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:15:12,274 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:15:19,979 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:15:22,601 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:15:29,284 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:15:31,868 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:15:35,109 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:15:37,838 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:15:40,039 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:15:42,406 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:16:05,479 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:16:08,300 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:16:11,620 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:16:14,625 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:16:16,766 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:16:19,233 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:16:22,527 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:16:25,079 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:16:30,400 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:16:32,934 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:16:40,484 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:16:43,086 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:16:48,490 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:16:50,969 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:17:04,961 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:17:07,695 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:17:09,861 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:17:12,478 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:17:16,740 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:17:19,598 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-22 23:17:22,783 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-22 23:17:25,184 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-23 00:25:48,077 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\myapp\views.py changed, reloading.
+2023-07-23 00:25:51,310 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-23 00:26:36,177 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\django_panel\settings.py changed, reloading.
+2023-07-23 00:26:38,822 django.utils.autoreload INFO    : Watching for file changes with StatReloader
+2023-07-23 00:27:11,447 django.utils.autoreload INFO    : D:\Works\freelancer\django_panel\django_panel\settings.py changed, reloading.
