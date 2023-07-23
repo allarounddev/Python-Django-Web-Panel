@@ -11,7 +11,7 @@ from django.core import serializers
 import sys
 import socket
 import paramiko
-from ping3 import ping, verbose_ping
+import ping3
 # from django.core.mail import send_mail
 from django.core.mail import EmailMessage, get_connection
 from django.conf import settings
@@ -140,50 +140,45 @@ def ping_status(request):
     result = ''
     ping3.EXCEPTIONS = True
     for server in server_list:
-        response = os.system('ping -c 1 ' + server.domain)
-        if response == 0:
-            print(server.domain, 'is up')
-        else:
-            print(server.domain, 'is down')
 
         # domain check
-        # try:
-        #     verbose_ping(server.domain)
-        #     print('good')
-        #     result = "Connected!"
-        #     server.status_domain = True
-        #     server.save()
+        try:
+            ping3.ping(server.domain)
+            print('good')
+            result = "Connected!"
+            server.status_domain = True
+            server.save()
 
-        # except ping.errors.HostUnknown:  # Specific error is catched.
-        #     print("Host unknown error raised.")
-        #     result = "Host unknown error raised."
-        #     server.status_domain = False
-        #     server.save()
+        except ping3.errors:  # Specific error is catched.
+            print("Host unknown error raised.")
+            result = "Host unknown error raised."
+            server.status_domain = False
+            server.save()
 
-        # except ping.errors.PingError:  # All ping3 errors are subclasses of `PingError`.
-        #     print("A ping error raised.")
-        #     result = "A ping error raised."
-        #     server.status_domain = False
-        #     server.save()
+        except ping3.errors.PingError:  # All ping3 errors are subclasses of `PingError`.
+            print("A ping error raised.")
+            result = "A ping error raised."
+            server.status_domain = False
+            server.save()
 
         # ip check
-        # try:
-        #     ping3.ping(server.ip)
-        #     print('good')
-        #     result = "Connected!"
-        #     server.status_ip = True
-        #     server.save()
-        # except ping3.errors.HostUnknown:  # Specific error is catched.
-        #     print("Host unknown error raised.")
-        #     result = "Host unknown error raised."
-        #     server.status_ip = False
-        #     server.save()
+        try:
+            ping3.ping(server.ip)
+            print('good')
+            result = "Connected!"
+            server.status_ip = True
+            server.save()
+        except ping3.errors:  # Specific error is catched.
+            print("Host unknown error raised.")
+            result = "Host unknown error raised."
+            server.status_ip = False
+            server.save()
 
-        # except ping3.errors.PingError:  # All ping3 errors are subclasses of `PingError`.
-        #     print("A ping error raised.")
-        #     result = "A ping error raised."
-        #     server.status_ip = False
-        #     server.save()
+        except ping3.errors.PingError:  # All ping3 errors are subclasses of `PingError`.
+            print("A ping error raised.")
+            result = "A ping error raised."
+            server.status_ip = False
+            server.save()
 
     server_list = Server.objects.all()
     json_data = serializers.serialize('json', server_list)
