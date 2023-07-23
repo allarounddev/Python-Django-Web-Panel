@@ -141,7 +141,7 @@ def ping_status(request):
     for server in server_list:
         # domain check
         try:
-            ping3.ping(server.domain)
+            ping3.ping(server.domain, ttl=1)
             print('good')
             result = "Connected!"
             server.status_domain = True
@@ -161,7 +161,7 @@ def ping_status(request):
 
         # ip check
         try:
-            ping3.ping(server.ip)
+            ping3.ping(server.ip, ttl=1)
             print('good')
             result = "Connected!"
             server.status_ip = True
