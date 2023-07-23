@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-_k+%8jp474-3g8v&-7lk4wvam%3edu+)(fujj_fy$dmcq+uuqk"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -131,7 +131,7 @@ LOGOUT_REDIRECT_URL = "/login/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-DEBUG = False
+
 INSTALLED_APPS = (
    'django.contrib.admin',
    'django.contrib.auth',
